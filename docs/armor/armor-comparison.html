@@ -1,0 +1,141 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>Pathfinder Tools</title>
+	<meta name="description" content="A collection of tools to assist with character creation and Dungeon Mastering.">
+	<meta name="author" content="Alexis Harper">
+	
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/armor-comparison.css">
+</head>
+
+<body>
+	<script src="../js/sidenav.js"></script>
+	<script src="../js/armor-comparison.js"></script>
+	
+	<div id="mainTopnav" class="topnav">
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Pathfinder Tools</span>
+		<p>A collection of tools to assist with character creation and Dungeon Mastering.</p>
+	</div>
+	
+	<div class="tool">
+		<input type="number" style="float:left;margin-right:4px" id="dexterity" onchange="dexChange()" value="10">Dex Bonus
+		<select style="margin-left:18px;margin-right:4px" id="size" onchange="sizeChange()"><option>Medium</option><option>Small</option></select>Size Category<br><br>
+		
+		<table>
+			<tr style="border:none">
+				<td><select id="armor0" onchange="armorChange0()">
+					<option>No armor</option>
+					<option>Padded</option>
+					<option>Leather</option>
+					<option>Studded leather</option>
+					<option>Chain shirt</option>
+					<option>Hide</option>
+					<option>Scale mail</option>
+					<option>Chainmail</option>
+					<option>Breastplate</option>
+					<option>Splint mail</option>
+					<option>Banded mail</option>
+					<option>Half-plate</option>
+					<option>Full plate</option>
+				</select></td>
+				
+				<td></td>
+				
+				<td><select id="armor1" onchange="armorChange1()">
+					<option>No armor</option>
+					<option>Padded</option>
+					<option>Leather</option>
+					<option>Studded leather</option>
+					<option>Chain shirt</option>
+					<option>Hide</option>
+					<option>Scale mail</option>
+					<option>Chainmail</option>
+					<option>Breastplate</option>
+					<option>Splint mail</option>
+					<option>Banded mail</option>
+					<option>Half-plate</option>
+					<option>Full plate</option>
+				</select></td>
+			</tr>
+			
+			<tr style="border:none">
+				<td><select id="shield0" onchange="shieldChange0()">
+					<option>No shield</option>
+					<option>Buckler</option>
+					<option>Shield, light wooden</option>
+					<option>Shield, light steel</option>
+					<option>Shield, heavy wooden</option>
+					<option>Shield, heavy steel</option>
+					<option>Shield, tower</option>
+				</select></td>
+				
+				<td></td>
+				
+				<td><select id="shield1" onchange="shieldChange1()">
+					<option>No shield</option>
+					<option>Buckler</option>
+					<option>Shield, light wooden</option>
+					<option>Shield, light steel</option>
+					<option>Shield, heavy wooden</option>
+					<option>Shield, heavy steel</option>
+					<option>Shield, tower</option>
+				</select></td>
+			</tr>
+			
+			<tr style="border:none">
+				<td id="picture0"></td>
+				<td></td>
+				<td id="picture1"></td>
+			</tr>
+			
+			<tr style="border:none">
+				<td id="ac0">10</td>
+				<td>Simple AC</td>
+				<td id="ac1">10</td>
+			</tr> 
+			
+			<tr>
+				<td id="checkPenalty0">0</td>
+				<td>Check Penalty</td>
+				<td id="checkPenalty1">0</td>
+			</tr>
+			
+			<tr>
+				<td id="spellFailure0">0%</td>
+				<td>Spell Failure</td>
+				<td id="spellFailure1">0%</td>
+			</tr>
+			
+			<tr>
+				<td id="speed0">30 ft.</td>
+				<td>Speed</td>
+				<td id="speed1">30 ft.</td>
+			</tr>
+			
+			<tr>
+				<td id="cost0">0 GP</td>
+				<td>Cost</td>
+				<td id="cost1">0 GP</td>
+			</tr>
+			
+			<tr>
+				<td id="weight0">0 lbs.</td>
+				<td>Weight</td>
+				<td id="weight1">0 lbs.</td>
+			</tr>
+		</table>
+	</div>
+		
+	<div id="navdark" class="navdark"></div>
+	<div id="mainSidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="..">Home</a>n  
+		<a href="../money/starting-equipment.html">Starting Equipment</a>
+		<a href="../armor/armor-comparison.html">Armor Comparison</a>
+	</div>
+</body>
+</html>

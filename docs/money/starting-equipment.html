@@ -1,0 +1,293 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>Pathfinder Starting Equipment</title>
+	<meta name="description" content="A tool to assist in picking starting equipment when creating characters.">
+	<meta name="author" content="Alexis Harper">
+	
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/starting-equipment.css">
+</head>
+
+<body>
+	<script src="../js/sidenav.js"></script>
+	
+	<div id="mainTopnav" class="topnav">
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Pathfinder Tools</span><br><br>
+		A collection of tools to assist with character creation and Dungeon Mastering.
+	</div>
+	
+	<div class="tool">
+		Starting Wealth:<br>
+		<input type="number" id="wealth" onchange="startingWealthChanged()" style="margin-bottom:18px"><br>
+		
+		<div style="display:flex;flex-wrap:nowrap">
+			<div style="float:left;margin-right:18px">
+				<table id="equipment">
+					<tr>
+						<td>Item</td>
+						<td>Price</td>
+						<td>Currency</td>
+					</tr>
+					
+					<tr>
+						<td><input type="text"></td>
+						<td><input type="number" onchange="recalculate()"></td>
+						<td><select onchange="recalculate()"><option>GP</option><option>SP</option><option>CP</option></select></td>
+						<td><button onclick="removeRow(1)">&times;</button></td>
+					</tr>
+				</table>
+				
+				<button onclick="addEmptyRow()">&plus;</button><br><br>
+				
+				Leftover Money:
+				<p id="leftoverMoney">CP: 0<br>
+				SP: 0<br>
+				GP: 0</p>
+			</div>
+			
+			<div style="margin-left:18px">
+				<h3>Core Rulebook Equipment:</h3>
+				
+				<button class="collapsible">Armor and Shields</button>
+				<div class="category">
+					<button onclick="addRow(&quot;Padded armor&quot;, 5, &quot;GP&quot;);recalculate()">Padded</button>
+					<button onclick="addRow(&quot;Leather armor&quot;, 10, &quot;GP&quot;);recalculate()">Leather</button>
+					<button onclick="addRow(&quot;Studded leather armor&quot;, 25, &quot;GP&quot;);recalculate()">Studded leather</button>
+					<button onclick="addRow(&quot;Chain shirt&quot;, 100, &quot;GP&quot;);recalculate()">Chain shirt</button>
+					<button onclick="addRow(&quot;Hide armor&quot;, 15, &quot;GP&quot;);recalculate()">Hide</button>
+					<button onclick="addRow(&quot;Scale mail&quot;, 50, &quot;GP&quot;);recalculate()">Scale mail</button>
+					<button onclick="addRow(&quot;Chainmail&quot;, 150, &quot;GP&quot;);recalculate()">Chainmail</button>
+					<button onclick="addRow(&quot;Breastplate&quot;, 200, &quot;GP&quot;);recalculate()">Breastplate</button>
+					<button onclick="addRow(&quot;Splint mail&quot;, 200, &quot;GP&quot;);recalculate()">Splint mail</button>
+					<button onclick="addRow(&quot;Banded mail&quot;, 250, &quot;GP&quot;);recalculate()">Banded mail</button>
+					<button onclick="addRow(&quot;Half-plate armor&quot;, 600, &quot;GP&quot;);recalculate()">Half-plate</button>
+					<button onclick="addRow(&quot;Full plate armor&quot;, 1500, &quot;GP&quot;);recalculate()">Full plate</button>
+					<button onclick="addRow(&quot;Buckler&quot;, 5, &quot;GP&quot;);recalculate()">Buckler</button>
+					<button onclick="addRow(&quot;Shield, light wooden&quot;, 3, &quot;GP&quot;);recalculate()">Shield, light wooden</button>
+					<button onclick="addRow(&quot;Shield, light steel&quot;, 9, &quot;GP&quot;);recalculate()">Shield, light steel</button>
+					<button onclick="addRow(&quot;Shield, heavy wooden&quot;, 7, &quot;GP&quot;);recalculate()">Shield, heavy wooden</button>
+					<button onclick="addRow(&quot;Shield, heavy steel&quot;, 20, &quot;GP&quot;);recalculate()">Shield, heavy steel</button>
+					<button onclick="addRow(&quot;Shield, tower&quot;, 30, &quot;GP&quot;);recalculate()">Shield, tower</button>
+				</div>
+				
+				<button class="collapsible">Weapons</button>
+				<div class="category">
+					<h5 style="margin-top:8px">Unarmed Attacks</h5>
+					<button onclick="addRow(&quot;Gauntlet&quot;, 2, &quot;GP&quot;);recalculate()">Gauntlet</button>
+					<h5>Simple Light Melee Weapons</h5>
+					<button onclick="addRow(&quot;Dagger&quot;, 2, &quot;GP&quot;);recalculate()">Dagger</button>
+					<button onclick="addRow(&quot;Dagger, punching&quot;, 2, &quot;GP&quot;);recalculate()">Dagger, punching</button>
+					<button onclick="addRow(&quot;Gauntlet, spiked&quot;, 5, &quot;GP&quot;);recalculate()">Gauntlet, spiked</button>
+					<button onclick="addRow(&quot;Mace, light&quot;, 5, &quot;GP&quot;);recalculate()">Mace, light</button>
+					<button onclick="addRow(&quot;Sickle&quot;, 6, &quot;GP&quot;);recalculate()">Sickle</button>
+					<h5>Simple One-Handed Melee Weapons</h5>
+					<button onclick="addRow(&quot;Club&quot;, 0, &quot;GP&quot;);recalculate()">Club</button>
+					<button onclick="addRow(&quot;Mace, heavy&quot;, 12, &quot;GP&quot;);recalculate()">Mace, heavy</button>
+					<button onclick="addRow(&quot;Morningstar&quot;, 8, &quot;GP&quot;);recalculate()">Morningstar</button>
+					<button onclick="addRow(&quot;Shortspear&quot;, 1 &quot;GP&quot;);recalculate()">Shortspear</button>
+					<h5>Simple Two-Handed Melee Weapons</h5>
+					<button onclick="addRow(&quot;Longspear&quot;, 5, &quot;GP&quot;);recalculate()">Longspear</button>
+					<button onclick="addRow(&quot;Quarterstaff&quot;, 0, &quot;GP&quot;);recalculate()">Quarterstaff</button>
+					<button onclick="addRow(&quot;Spear&quot;, 2, &quot;GP&quot;);recalculate()">Spear</button>
+					<h5>Simple Ranged Weapons</h5>
+					<button onclick="addRow(&quot;Blowgun&quot;, 2, &quot;GP&quot;);recalculate()">Blowgun</button>
+					<button onclick="addRow(&quot;Darts, blowgun (10)&quot;, 2, &quot;GP&quot;);recalculate()">Darts, blowgun (10)</button>
+					<button onclick="addRow(&quot;Crossbow, heavy&quot;, 50, &quot;GP&quot;);recalculate()">Crossbow, heavy</button>
+					<button onclick="addRow(&quot;Crossbow, light&quot;, 35, &quot;GP&quot;);recalculate()">Crossbow, light</button>
+					<button onclick="addRow(&quot;Bolts, crossbow (10)&quot;, 1, &quot;GP&quot;);recalculate()">Bolts, crossbow (10)</button>
+					<button onclick="addRow(&quot;Dart&quot;, 5, &quot;SP&quot;);recalculate()">Dart</button>
+					<button onclick="addRow(&quot;Javelin&quot;, 1, &quot;GP&quot;);recalculate()">Javelin</button>
+					<button onclick="addRow(&quot;Sling&quot;, 0, &quot;GP&quot;);recalculate()">Sling</button>
+					<button onclick="addRow(&quot;Bullets, sling (10)&quot;, 0, &quot;GP&quot;);recalculate()">Bullets, sling (10)</button>
+					<h5>Martial Light Melee Weapons</h5>
+					<button onclick="addRow(&quot;Axe, throwing&quot;, 8, &quot;GP&quot;);recalculate()">Axe, throwing</button>
+					<button onclick="addRow(&quot;Hammer, light&quot;, 1, &quot;GP&quot;);recalculate()">Hammer, light</button>
+					<button onclick="addRow(&quot;Handaxe&quot;, 6, &quot;GP&quot;);recalculate()">Handaxe</button>
+					<button onclick="addRow(&quot;Kukri&quot;, 8, &quot;GP&quot;);recalculate()">Kukri</button>
+					<button onclick="addRow(&quot;Pick, light&quot;, 2, &quot;GP&quot;);recalculate()">Pick, light</button>
+					<button onclick="addRow(&quot;Sap&quot;, 1, &quot;GP&quot;);recalculate()">Sap</button>
+					<button onclick="addRow(&quot;Starknife&quot;, 24, &quot;GP&quot;);recalculate()">Starknife</button>
+					<button onclick="addRow(&quot;Sword, short&quot;, 10, &quot;GP&quot;);recalculate()">Sword, short</button>
+					<h5>Martial One-Handed Melee Weapons</h5>
+					<button onclick="addRow(&quot;Battleaxe&quot;, 10, &quot;GP&quot;);recalculate()">Battleaxe</button>
+					<button onclick="addRow(&quot;Flail&quot;, 8, &quot;GP&quot;);recalculate()">Flail</button>
+					<button onclick="addRow(&quot;Longsword&quot;, 15, &quot;GP&quot;);recalculate()">Longsword</button>
+					<button onclick="addRow(&quot;Pick, heavy&quot;, 8, &quot;GP&quot;);recalculate()">Pick, heavy</button>
+					<button onclick="addRow(&quot;Rapier&quot;, 20, &quot;GP&quot;);recalculate()">Rapier</button>
+					<button onclick="addRow(&quot;Scimitar&quot;, 15, &quot;GP&quot;);recalculate()">Scimitar</button>
+					<button onclick="addRow(&quot;Trident&quot;, 15, &quot;GP&quot;);recalculate()">Trident</button>
+					<button onclick="addRow(&quot;Warhammer&quot;, 12, &quot;GP&quot;);recalculate()">Warhammer</button>
+					<h5>Martial Two-Handed Melee Weapons</h5>
+					<button onclick="addRow(&quot;Falchion&quot;, 75, &quot;GP&quot;);recalculate()">Falchion</button>
+					<button onclick="addRow(&quot;Glaive&quot;, 8, &quot;GP&quot;);recalculate()">Glaive</button>
+					<button onclick="addRow(&quot;Greataxe&quot;, 20, &quot;GP&quot;);recalculate()">Greataxe</button>
+					<button onclick="addRow(&quot;Greatclub&quot;, 5, &quot;GP&quot;);recalculate()">Greatclub</button>
+					<button onclick="addRow(&quot;Flail, heavy&quot;, 15, &quot;GP&quot;);recalculate()">Flail, heavy</button>
+					<button onclick="addRow(&quot;Greatsword&quot;, 50, &quot;GP&quot;);recalculate()">Greatsword</button>
+					<button onclick="addRow(&quot;Guisarme&quot;, 9, &quot;GP&quot;);recalculate()">Guisarme</button>
+					<button onclick="addRow(&quot;Halberd&quot;, 10, &quot;GP&quot;);recalculate()">Halberd</button>
+					<button onclick="addRow(&quot;Lance&quot;, 10, &quot;GP&quot;);recalculate()">Lance</button>
+					<button onclick="addRow(&quot;Ranseur&quot;, 10, &quot;GP&quot;);recalculate()">Ranseur</button>
+					<button onclick="addRow(&quot;Scythe&quot;, 18, &quot;GP&quot;);recalculate()">Scythe</button>
+					<h5>Martial Ranged Weapons</h5>
+					<button onclick="addRow(&quot;Longbow&quot;, 75, &quot;GP&quot;);recalculate()">Longbow</button>
+					<button onclick="addRow(&quot;Longbow, composite&quot;, 100, &quot;GP&quot;);recalculate()">Longbow, composite</button>
+					<button onclick="addRow(&quot;Shortbow&quot;, 30, &quot;GP&quot;);recalculate()">Shortbow</button>
+					<button onclick="addRow(&quot;Shortbow, composite&quot;, 2, &quot;GP&quot;);recalculate()">Shortbow, composite</button>
+					<button onclick="addRow(&quot;Arrows (20)&quot;, 2, &quot;GP&quot;);recalculate()">Arrows (20)</button>
+					<h5>Exotic Light Melee Weapons</h5>
+					<button onclick="addRow(&quot;Kama&quot;, 2, &quot;GP&quot;);recalculate()">Kama</button>
+					<button onclick="addRow(&quot;Nunchaku&quot;, 2, &quot;GP&quot;);recalculate()">Nunchaku</button>
+					<button onclick="addRow(&quot;Sai&quot;, 1, &quot;GP&quot;);recalculate()">Sai</button>
+					<button onclick="addRow(&quot;Siangham&quot;, 3, &quot;GP&quot;);recalculate()">Siangham</button>
+					<h5>Exotic One-Handed Melee Weapons</h5>
+					<button onclick="addRow(&quot;Sword, bastard&quot;, 35, &quot;GP&quot;);recalculate()">Sword, bastard</button>
+					<button onclick="addRow(&quot;Waraxe, dwarven&quot;, 30, &quot;GP&quot;);recalculate()">Waraxe, dwarven</button>
+					<button onclick="addRow(&quot;Whip&quot;, 1, &quot;GP&quot;);recalculate()">Whip</button>
+					<h5>Exotic Two-Handed Melee Weapons</h5>
+					<button onclick="addRow(&quot;Axe, orc double&quot;, 60, &quot;GP&quot;);recalculate()">Axe, orc double</button>
+					<button onclick="addRow(&quot;Chain, spiked&quot;, 25, &quot;GP&quot;);recalculate()">Chain, spiked</button>
+					<button onclick="addRow(&quot;Curve blade, elven&quot;, 80, &quot;GP&quot;);recalculate()">Curve blade, elven</button>
+					<button onclick="addRow(&quot;Flail, dire&quot;, 90, &quot;GP&quot;);recalculate()">Flail, dire</button>
+					<button onclick="addRow(&quot;Hammer, gnome hooked&quot;, 20, &quot;GP&quot;);recalculate()">Hammer, gnome hooked</button>
+					<button onclick="addRow(&quot;Sword, two-bladed&quot;, 100, &quot;GP&quot;);recalculate()">Sword, two-bladed</button>
+					<button onclick="addRow(&quot;Urgrosh, dwarven&quot;, 50, &quot;GP&quot;);recalculate()">Urgrosh, dwarven</button>
+					<h5>Exotic Ranged Weapons</h5>
+					<button onclick="addRow(&quot;Bolas&quot;, 5, &quot;GP&quot;);recalculate()">Bolas</button>
+					<button onclick="addRow(&quot;Crossbow, hand&quot;, 100, &quot;GP&quot;);recalculate()">Crossbow, hand</button>
+					<button onclick="addRow(&quot;Bolts (10)&quot;, 1, &quot;GP&quot;);recalculate()">Bolts (10)</button>
+					<button onclick="addRow(&quot;Crossbow, repeating heavy&quot;, 400, &quot;GP&quot;);recalculate()">Crossbow, repeating heavy</button>
+					<button onclick="addRow(&quot;Crossbow, repeating light&quot;, 250, &quot;GP&quot;);recalculate()">Crossbow, repeating light</button>
+					<button onclick="addRow(&quot;Bolts (5)&quot;, 1, &quot;GP&quot;);recalculate()">Bolts (5)</button>
+					<button onclick="addRow(&quot;Net&quot;, 20, &quot;GP&quot;);recalculate()">Net</button>
+					<button onclick="addRow(&quot;Shuriken (5)&quot;, 1, &quot;GP&quot;);recalculate()">Shuriken (5)</button>
+					<button onclick="addRow(&quot;Sling staff halfling&quot;, 20, &quot;GP&quot;);recalculate()">Sling staff, halfling</button>
+					<button onclick="addRow(&quot;Bullets, sling (10)&quot;, 1, &quot;SP&quot;);recalculate()">Bullets, sling (10)</button>
+				</div>
+				
+				<button class="collapsible">Adventuring Gear</button>
+				<div class="category">
+					<button onclick="addRow(&quot;Backpack&quot;, 2, &quot;GP&quot;);recalculate()">Backpack</button>
+					<button onclick="addRow(&quot;Barrel&quot;, 2, &quot;GP&quot;);recalculate()">Barrel</button>
+					<button onclick="addRow(&quot;Basket&quot;, 4, &quot;SP&quot;);recalculate()">Basket</button>
+					<button onclick="addRow(&quot;Bedroll&quot;, 1, &quot;SP&quot;);recalculate()">Bedroll</button>
+					<button onclick="addRow(&quot;Bell&quot;, 1, &quot;GP&quot;);recalculate()">Bell</button>
+					<button onclick="addRow(&quot;Blanket, winter&quot;, 5, &quot;SP&quot;);recalculate()">Blanket, winter</button>
+					<button onclick="addRow(&quot;Block and tackle&quot;, 5, &quot;GP&quot;);recalculate()">Block and tackle</button>
+					<button onclick="addRow(&quot;Bottle, glass&quot;, 2, &quot;GP&quot;);recalculate()">Bottle, glass</button>
+					<button onclick="addRow(&quot;Bucket&quot;, 5, &quot;SP&quot;);recalculate()">Bucket</button>
+					<button onclick="addRow(&quot;Caltrops&quot;, 1, &quot;GP&quot;);recalculate()">Caltrops</button>
+					<button onclick="addRow(&quot;Candle&quot;, 1, &quot;CP&quot;);recalculate()">Candle</button>
+					<button onclick="addRow(&quot;Canvas (sq. yd.)&quot;, 1, &quot;SP&quot;);recalculate()">Canvas (sq. yd.)</button>
+					<button onclick="addRow(&quot;Case, map or scroll&quot;, 1, &quot;GP&quot;);recalculate()">Case, map or scroll</button>
+					<button onclick="addRow(&quot;Chain (10 ft.)&quot;, 2, &quot;GP&quot;);recalculate()">Chain (10 ft.)</button>
+					<button onclick="addRow(&quot;Chalk&quot;, 1, &quot;CP&quot;);recalculate()">Chalk</button>
+					<button onclick="addRow(&quot;Chest&quot;, 2, &quot;GP&quot;);recalculate()">Chest</button>
+					<button onclick="addRow(&quot;Crowbar&quot;, 2, &quot;GP&quot;);recalculate()">Crowbar</button>
+					<button onclick="addRow(&quot;Firewood (1 day)&quot;, 2, &quot;GP&quot;);recalculate()">Firewood (1 day)</button>
+					<button onclick="addRow(&quot;Fishhook&quot;, 1, &quot;SP&quot;);recalculate()">Fishhook</button>
+					<button onclick="addRow(&quot;Fishing net, 25 sq. ft.&quot;, 4, &quot;GP&quot;);recalculate()">Fishing net, 25 sq. ft.</button>
+					<button onclick="addRow(&quot;Flask&quot;, 3, &quot;CP&quot;);recalculate()">Flask</button>
+					<button onclick="addRow(&quot;Flint and steel&quot;, 1, &quot;GP&quot;);recalculate()">Flint and steel</button>
+					<button onclick="addRow(&quot;Grappling hook&quot;, 1, &quot;GP&quot;);recalculate()">Grappling hook</button>
+					<button onclick="addRow(&quot;Hammer&quot;, 5, &quot;SP&quot;);recalculate()">Hammer</button>
+					<button onclick="addRow(&quot;Hourglass&quot;, 25, &quot;GP&quot;);recalculate()">Hourglass</button>
+					<button onclick="addRow(&quot;Ink (1 oz. vial)&quot;, 8, &quot;GP&quot;);recalculate()">Ink (1 oz. vial)</button>
+					<button onclick="addRow(&quot;Inkpen&quot;, 1, &quot;SP&quot;);recalculate()">Inkpen</button>
+					<button onclick="addRow(&quot;Jug, clay&quot;, 3, &quot;CP&quot;);recalculate()">Jug, clay</button>
+					<button onclick="addRow(&quot;Ladder 10-foot&quot;, 2, &quot;SP&quot;);recalculate()">Ladder, 10-foot</button>
+					<button onclick="addRow(&quot;Lamp, common&quot;, 1, &quot;SP&quot;);recalculate()">Lamp, common</button>
+					<button onclick="addRow(&quot;Lantern, bullseye&quot;, 12, &quot;GP&quot;);recalculate()">Lantern, bullseye</button>
+					<button onclick="addRow(&quot;Lantern, hooded&quot;, 7, &quot;GP&quot;);recalculate()">Lantern, hooded</button>
+					<button onclick="addRow(&quot;Lock, simple&quot;, 20, &quot;GP&quot;);recalculate()">Lock, simple</button>
+					<button onclick="addRow(&quot;Lock, average&quot;, 40, &quot;GP&quot;);recalculate()">Lock, average</button>
+					<button onclick="addRow(&quot;Lock, superior&quot;, 150, &quot;GP&quot;);recalculate()">Lock, superior</button>
+					<button onclick="addRow(&quot;Manacles&quot;, 15, &quot;GP&quot;);recalculate()">Manacles</button>
+					<button onclick="addRow(&quot;Manacles, masterwork&quot;, 50, &quot;GP&quot;);recalculate()">Manacles, masterwork</button>
+					<button onclick="addRow(&quot;Mirror, small steel&quot;, 10, &quot;GP&quot;);recalculate()">Mirror, small steel</button>
+					<button onclick="addRow(&quot;Mug/Tankard, clay&quot;, 2, &quot;CP&quot;);recalculate()">Mug/Tankard, clay</button>
+					<button onclick="addRow(&quot;Oil (1-pint flask)&quot;, 1, &quot;SP&quot;);recalculate()">Oil (1-pint flask)</button>
+					<button onclick="addRow(&quot;Paper&quot;, 4, &quot;SP&quot;);recalculate()">Paper</button>
+					<button onclick="addRow(&quot;Parchment&quot;, 2, &quot;SP&quot;);recalculate()">Parchment</button>
+					<button onclick="addRow(&quot;Pick, miner's&quot;, 3, &quot;GP&quot;);recalculate()">Pick, miner's</button>
+					<button onclick="addRow(&quot;Pitcher, clay&quot;, 2, &quot;CP&quot;);recalculate()">Pitcher, clay</button>
+					<button onclick="addRow(&quot;Piton&quot;, 1, &quot;CP&quot;);recalculate()">Piton</button>
+					<button onclick="addRow(&quot;Pole, 10-foot&quot;, 5, &quot;CP&quot;);recalculate()">Pole, 10-foot</button>
+					<button onclick="addRow(&quot;Pot, iron&quot;, 8, &quot;SP&quot;);recalculate()">Pot, iron</button>
+					<button onclick="addRow(&quot;Pouch, belt&quot;, 1, &quot;GP&quot;);recalculate()">Pouch, belt</button>
+					<button onclick="addRow(&quot;Ram, portable&quot;, 10, &quot;GP&quot;);recalculate()">Ram, portable</button>
+					<button onclick="addRow(&quot;Rations, trail (1 day)&quot;, 5, &quot;SP&quot;);recalculate()">Rations, trail (1 day)</button>
+					<button onclick="addRow(&quot;Rope, hemp (50 ft.)&quot;, 1, &quot;GP&quot;);recalculate()">Rope, hemp (50 ft.)</button>
+					<button onclick="addRow(&quot;Rope, silk (50 ft.)&quot;, 10, &quot;GP&quot;);recalculate()">Rope, silk (50 ft.)</button>
+					<button onclick="addRow(&quot;Sack&quot;, 1, &quot;SP&quot;);recalculate()">Sack</button>
+					<button onclick="addRow(&quot;Sealing wax&quot;, 1, &quot;GP&quot;);recalculate()">Sealing wax</button>
+					<button onclick="addRow(&quot;Sewing needle&quot;, 5, &quot;SP&quot;);recalculate()">Sewing needle</button>
+					<button onclick="addRow(&quot;Shovel or spade&quot;, 2, &quot;GP&quot;);recalculate()">Shovel or spade</button>
+					<button onclick="addRow(&quot;Signal Whistle&quot;, 8, &quot;SP&quot;);recalculate()">Signal whistle</button>
+					<button onclick="addRow(&quot;Signet ring&quot;, 5, &quot;GP&quot;);recalculate()">Signet ring</button>
+					<button onclick="addRow(&quot;Sledge&quot;, 1, &quot;GP&quot;);recalculate()">Sledge</button>
+					<button onclick="addRow(&quot;Soap (1 lb.)&quot;, 5, &quot;SP&quot;);recalculate()">Soap (1 lb.)</button>
+					<button onclick="addRow(&quot;Spyglass&quot;, 1000, &quot;GP&quot;);recalculate()">Spyglass</button>
+					<button onclick="addRow(&quot;Tent&quot;, 10, &quot;GP&quot;);recalculate()">Tent</button>
+					<button onclick="addRow(&quot;Torch&quot;, 1, &quot;CP&quot;);recalculate()">Torch</button>
+					<button onclick="addRow(&quot;Vial, ink or potion&quot;, 1, &quot;GP&quot;);recalculate()">Vial, ink or potion</button>
+					<button onclick="addRow(&quot;Water clock&quot;, 1000, &quot;GP&quot;);recalculate()">Water clock</button>
+					<button onclick="addRow(&quot;Waterskin&quot;, 1, &quot;GP&quot;);recalculate()">Waterskin</button>
+					<button onclick="addRow(&quot;Whetstone&quot;, 2, &quot;CP&quot;);recalculate()">Whetstone</button>
+				</div>
+					
+				<button class="collapsible">Special Substances and Items</button>
+				<div class="category">
+					<button onclick="addRow(&quot;Acid (flask)&quot;, 10, &quot;GP&quot;);recalculate()">Acid (flask)</button>
+					<button onclick="addRow(&quot;Alchemist's Fire (flask)&quot;, 20, &quot;GP&quot;);recalculate()">Alchemist's Fire (flask)</button>
+					<button onclick="addRow(&quot;Antitoxin (vial)&quot;, 50, &quot;GP&quot;);recalculate()">Antitoxin (vial)</button>
+					<button onclick="addRow(&quot;Everburning torch&quot;, 110, &quot;GP&quot;);recalculate()">Everburning torch</button>
+					<button onclick="addRow(&quot;Holy water (flask)&quot;, 25, &quot;GP&quot;);recalculate()">Holy water (flask)</button>
+					<button onclick="addRow(&quot;Smokestick&quot;, 20, &quot;GP&quot;);recalculate()">Smokestick</button>
+					<button onclick="addRow(&quot;Sunrod&quot;, 2, &quot;GP&quot;);recalculate()">Sunrod</button>
+					<button onclick="addRow(&quot;Tanglefoot bag&quot;, 50, &quot;GP&quot;);recalculate()">Tanglefoot bag</button>
+					<button onclick="addRow(&quot;Thunderstone&quot;, 30, &quot;GP&quot;);recalculate()">Thunderstone</button>
+					<button onclick="addRow(&quot;Tindertwig&quot;, 1, &quot;GP&quot;);recalculate()">Tindertwig</button>
+				</div>
+				
+				<button class="collapsible">Tools and Skill Kits</button>
+				<div class="category">
+					<button onclick="addRow(&quot;Alchemist's lab&quot;, 200, &quot;GP&quot;);recalculate()">Alchemist's lab</button>
+					<button onclick="addRow(&quot;Artisan's tools&quot;, 5, &quot;GP&quot;);recalculate()">Artisan's tools</button>
+					<button onclick="addRow(&quot;Artisan's tools, masterwork&quot;, 55, &quot;GP&quot;);recalculate()">Artisan's tools, masterwork</button>
+					<button onclick="addRow(&quot;Climber's kit&quot;, 80, &quot;GP&quot;);recalculate()">Climber's kit</button>
+					<button onclick="addRow(&quot;Disguise kit&quot;, 50, &quot;GP&quot;);recalculate()">Disguise kit</button>
+					<button onclick="addRow(&quot;Healer's kit&quot;, 50, &quot;GP&quot;);recalculate()">Healer's kit</button>
+					<button onclick="addRow(&quot;Holly and mistletoe&quot;, 0, &quot;GP&quot;);recalculate()">Holly and mistletoe</button>
+					<button onclick="addRow(&quot;Holy symbol, wooden&quot;, 1, &quot;GP&quot;);recalculate()">Holy symbol, wooden</button>
+					<button onclick="addRow(&quot;Holy symbol, silver&quot;, 25, &quot;GP&quot;);recalculate()">Holy symbol, silver</button>
+					<button onclick="addRow(&quot;Magnifying glass&quot;, 100, &quot;GP&quot;);recalculate()">Magnifying glass</button>
+					<button onclick="addRow(&quot;Musical instrument, common&quot;, 5, &quot;GP&quot;);recalculate()">Musical instrument, common</button>
+					<button onclick="addRow(&quot;Musical instrument, masterwork&quot;, 100, &quot;GP&quot;);recalculate()">Musical instrument, masterwork</button>
+					<button onclick="addRow(&quot;Scale, merchant's&quot;, 2, &quot;GP&quot;);recalculate()">Scale, merchant's</button>
+					<button onclick="addRow(&quot;Spell component pouch&quot;, 5, &quot;GP&quot;);recalculate()">Spell component pouch</button>
+					<button onclick="addRow(&quot;Spellbook, wizard's&quot;, 15, &quot;GP&quot;);recalculate()">Spellbook, wizard's</button>
+					<button onclick="addRow(&quot;Thieves' tools&quot;, 30, &quot;GP&quot;);recalculate()">Thieves' tools</button>
+					<button onclick="addRow(&quot;Thieves' tools, masterwork&quot;, 100, &quot;GP&quot;);recalculate()">Thieves' tools, masterwork</button>
+					<button onclick="addRow(&quot;Tool, masterwork&quot;, 50, &quot;GP&quot;);recalculate()">Tool, masterwork</button>
+				</div>
+			</div><br>
+		</div>
+	</div>
+		
+	<div id="navdark" class="navdark"></div>
+	<div id="mainSidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="..">Home</a>
+		<a href="starting-equipment.html">Starting Equipment</a>
+		<a href="../armor/armor-comparison.html">Armor Comparison</a>
+	</div>
+	
+	<script src="../js/collapsible.js"></script>
+	<script src="../js/starting-equipment.js"></script>
+</body>
+</html>
