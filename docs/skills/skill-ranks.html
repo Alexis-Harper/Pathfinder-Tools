@@ -1,0 +1,444 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>Pathfinder Tools</title>
+	<meta name="description" content="A collection of tools to assist with character creation and Dungeon Mastering.">
+	<meta name="author" content="Alexis Harper">
+	
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/skill-ranks.css">
+</head>
+
+<body>
+	<script src="../js/sidenav.js"></script>
+	<script src="../js/skill-ranks.js"></script>
+	
+	<div id="mainTopnav" class="topnav">
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Pathfinder Tools</span>
+		<p>A collection of tools to assist with character creation and Dungeon Mastering.</p>
+	</div>
+	
+	<div class="tool">
+		<input type="number" style="float:left;margin-right:4px" id="strength" onchange="strChange()" value="10"><text style="float:left;margin-right:18px">Str</text>
+		<input type="number" style="float:left;margin-right:4px" id="dexterity" onchange="dexChange()" value="10"><text style="float:left;margin-right:18px">Dex</text>
+		<input type="number" style="float:left;margin-right:4px" id="intelligence" onchange="intChange()" value="10"><text style="float:left;margin-right:18px">Int</text>
+		<input type="number" style="float:left;margin-right:4px" id="wisdom" onchange="wisChange()" value="10"><text style="float:left;margin-right:18px">Wis</text>
+		<input type="number" style="float:left;margin-right:4px" id="charisma" onchange="chaChange()" value="10"><text style="float:left;margin-right:18px">Cha</text>
+		<select style="float:left;margin-right:4px" id="class" onchange="updateClass()"><option>Manual</option><option>Alchemist</option><option>Arcanist</option><option>Barbarian</option><option>Bard</option><option>Bloodrager</option><option>Brawler</option><option>Cavalier</option><option>Cleric</option><option>Druid</option><option>Fighter</option><option>Gunslinger</option><option>Hunter</option><option>Inquisitor</option><option>Investigator</option><option>Magus</option><option>Monk</option><option>Ninja</option><option>Oracle</option><option>Paladin</option><option>Ranger</option><option>Samurai</option><option>Shaman</option><option>Skald</option><option>Slayer</option><option>Summoner</option><option>Swashbuckler</option><option>Rogue</option><option>Sorcerer</option><option>Warpriest</option><option>Witch</option><option>Wizard</option></select><text>Class Skills</text><br><br>
+		
+		<table>
+			<tr>
+				<td>C.</td>	 
+				<td>Skill Names</td>
+				<td>Total<br>Bonus</td>
+				<td>Stat</td>
+				<td>Ability<br>Mod.</td>
+				<td>Ranks</td>
+				<td>Misc.<br>Mod.</td>
+			</tr>
+		
+			<tr>
+				<td><input type="checkbox" id="trained0" onchange="changeSkill(0, false)"></td>
+				<td>Acrobatics</td>
+				<td id="total0">+0</td>
+				<td>Dex</td>
+				<td class="dexMod">+0</td>
+				<td><input type="number" id="ranks0" onchange="changeSkill(0, false)" min="0"></td>
+				<td><input type="number" id="misc0" onchange="changeSkill(0, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained1" onchange="changeSkill(1, false)"></td>
+				<td>Appraise</td>
+				<td id="total1">+0</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks1" onchange="changeSkill(1, false)" min="0"></td>
+				<td><input type="number" id="misc1" onchange="changeSkill(1, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained2" onchange="changeSkill(2, false)"></td>
+				<td>Bluff</td>
+				<td id="total2">+0</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks2" onchange="changeSkill(2, false)" min="0"></td>
+				<td><input type="number" id="misc2" onchange="changeSkill(2, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained3" onchange="changeSkill(3, false)"></td>
+				<td>Climb</td>
+				<td id="total3">+0</td>
+				<td>Str</td>
+				<td class="strMod">+0</td>
+				<td><input type="number" id="ranks3" onchange="changeSkill(3, false)" min="0"></td>
+				<td><input type="number" id="misc3" onchange="changeSkill(3, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained4" onchange="changeSkill(4, false)"></td>
+				<td>Craft <input type="text"></td>
+				<td id="total4">+0</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks4" onchange="changeSkill(4, false)" min="0"></td>
+				<td><input type="number" id="misc4" onchange="changeSkill(4, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained5" onchange="changeSkill(5, false)"></td>
+				<td>Craft <input type="text"></td>
+				<td id="total5">+0</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks5" onchange="changeSkill(5, false)" min="0"></td>
+				<td><input type="number" id="misc5" onchange="changeSkill(5, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained6" onchange="changeSkill(6, false)"></td>
+				<td>Craft <input type="text"></td>
+				<td id="total6">+0</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks6" onchange="changeSkill(6, false)" min="0"></td>
+				<td><input type="number" id="misc6" onchange="changeSkill(6, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained7" onchange="changeSkill(7, false)"></td>
+				<td>Diplomacy</td>
+				<td id="total7">+0</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks7" onchange="changeSkill(7, false)" min="0"></td>
+				<td><input type="number" id="misc7" onchange="changeSkill(7, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained8" onchange="changeSkill(8, true)"></td>
+				<td>Disable Device*</td>
+				<td id="total8">X</td>
+				<td>Dex</td>
+				<td class="dexMod">+0</td>
+				<td><input type="number" id="ranks8" onchange="changeSkill(8, true)" min="0"></td>
+				<td><input type="number" id="misc8" onchange="changeSkill(8, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained9" onchange="changeSkill(9, false)"></td>
+				<td>Disguise</td>
+				<td id="total9">+0</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks9" onchange="changeSkill(9, false)" min="0"></td>
+				<td><input type="number" id="misc9" onchange="changeSkill(9, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained10" onchange="changeSkill(10, false)"></td>
+				<td>Escape Artist</td>
+				<td id="total10">+0</td>
+				<td>Dex</td>
+				<td class="dexMod">+0</td>
+				<td><input type="number" id="ranks10" onchange="changeSkill(10, false)" min="0"></td>
+				<td><input type="number" id="misc10" onchange="changeSkill(10, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained11" onchange="changeSkill(11, false)"></td>
+				<td>Fly</td>
+				<td id="total11">+0</td>
+				<td>Dex</td>
+				<td class="dexMod">+0</td>
+				<td><input type="number" id="ranks11" onchange="changeSkill(11, false)" min="0"></td>
+				<td><input type="number" id="misc11" onchange="changeSkill(11, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained12" onchange="changeSkill(12, true)"></td>
+				<td>Handle Animal*</td>
+				<td id="total12">X</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks12" onchange="changeSkill(12, true)" min="0"></td>
+				<td><input type="number" id="misc12" onchange="changeSkill(12, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained13" onchange="changeSkill(13, false)"></td>
+				<td>Heal</td>
+				<td id="total13">+0</td>
+				<td>Wis</td>
+				<td class="wisMod">+0</td>
+				<td><input type="number" id="ranks13" onchange="changeSkill(13, false)" min="0"></td>
+				<td><input type="number" id="misc13" onchange="changeSkill(13, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained14" onchange="changeSkill(14, false)"></td>
+				<td>Intimidate</td>
+				<td id="total14">+0</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks14" onchange="changeSkill(14, false)" min="0"></td>
+				<td><input type="number" id="misc14" onchange="changeSkill(14, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained15" onchange="changeSkill(15, true)"></td>
+				<td>Knowledge (Arcana)*</td>
+				<td id="total15">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks15" onchange="changeSkill(15, true)" min="0"></td>
+				<td><input type="number" id="misc15" onchange="changeSkill(15, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained16" onchange="changeSkill(16, true)"></td>
+				<td>Knowledge (Dungeoneering)*</td>
+				<td id="total16">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks16" onchange="changeSkill(16, true)" min="0"></td>
+				<td><input type="number" id="misc16" onchange="changeSkill(16, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained17" onchange="changeSkill(17, true)"></td>
+				<td>Knowledge (Engineering)*</td>
+				<td id="total17">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks17" onchange="changeSkill(17, true)" min="0"></td>
+				<td><input type="number" id="misc17" onchange="changeSkill(17, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained18" onchange="changeSkill(18, true)"></td>
+				<td>Knowledge (Geography)*</td>
+				<td id="total18">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks18" onchange="changeSkill(18, true)" min="0"></td>
+				<td><input type="number" id="misc18" onchange="changeSkill(18, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained19" onchange="changeSkill(19, true)"></td>
+				<td>Knowledge (History)*</td>
+				<td id="total19">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks19" onchange="changeSkill(19, true)" min="0"></td>
+				<td><input type="number" id="misc19" onchange="changeSkill(19, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained20" onchange="changeSkill(20, true)"></td>
+				<td>Knowledge (Local)*</td>
+				<td id="total20">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks20" onchange="changeSkill(20, true)" min="0"></td>
+				<td><input type="number" id="misc20" onchange="changeSkill(20, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained21" onchange="changeSkill(21, true)"></td>
+				<td>Knowledge (Nature)*</td>
+				<td id="total21">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks21" onchange="changeSkill(21, true)" min="0"></td>
+				<td><input type="number" id="misc21" onchange="changeSkill(21, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained22" onchange="changeSkill(22, true)"></td>
+				<td>Knowledge (Nobility)*</td>
+				<td id="total22">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks22" onchange="changeSkill(22, true)" min="0"></td>
+				<td><input type="number" id="misc22" onchange="changeSkill(22, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained23" onchange="changeSkill(23, true)"></td>
+				<td>Knowledge (Planes)*</td>
+				<td id="total23">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks23" onchange="changeSkill(23, true)" min="0"></td>
+				<td><input type="number" id="misc23" onchange="changeSkill(23, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained24" onchange="changeSkill(24, true)"></td>
+				<td>Knowledge (Religion)*</td>
+				<td id="total24">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks24" onchange="changeSkill(24, true)" min="0"></td>
+				<td><input type="number" id="misc24" onchange="changeSkill(24, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained25" onchange="changeSkill(25, true)"></td>
+				<td>Linguistics*</td>
+				<td id="total25">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks25" onchange="changeSkill(25, true)" min="0"></td>
+				<td><input type="number" id="misc25" onchange="changeSkill(25, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained26" onchange="changeSkill(26, false)"></td>
+				<td>Perception</td>
+				<td id="total26">+0</td>
+				<td>Wis</td>
+				<td class="wisMod">+0</td>
+				<td><input type="number" id="ranks26" onchange="changeSkill(26, false)" min="0"></td>
+				<td><input type="number" id="misc26" onchange="changeSkill(26, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained27" onchange="changeSkill(27, false)"></td>
+				<td>Perform <input type="text"></td>
+				<td id="total27">+0</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks27" onchange="changeSkill(27, false)" min="0"></td>
+				<td><input type="number" id="misc27" onchange="changeSkill(27, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained28" onchange="changeSkill(28, false)"></td>
+				<td>Perform <input type="text"></td>
+				<td id="total28">+0</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks28" onchange="changeSkill(28, false)" min="0"></td>
+				<td><input type="number" id="misc28" onchange="changeSkill(28, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained29" onchange="changeSkill(29, true)"></td>
+				<td>Profession* <input type="text"></td>
+				<td id="total29">X</td>
+				<td>Wis</td>
+				<td class="wisMod">+0</td>
+				<td><input type="number" id="ranks29" onchange="changeSkill(29, true)" min="0"></td>
+				<td><input type="number" id="misc29" onchange="changeSkill(29, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained30" onchange="changeSkill(30, true)"></td>
+				<td>Profession* <input type="text"></td>
+				<td id="total30">X</td>
+				<td>Wis</td>
+				<td class="wisMod">+0</td>
+				<td><input type="number" id="ranks30" onchange="changeSkill(30, true)" min="0"></td>
+				<td><input type="number" id="misc30" onchange="changeSkill(30, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained31" onchange="changeSkill(31, false)"></td>
+				<td>Ride</td>
+				<td id="total31">+0</td>
+				<td>Dex</td>
+				<td class="dexMod">+0</td>
+				<td><input type="number" id="ranks31" onchange="changeSkill(31, false)" min="0"></td>
+				<td><input type="number" id="misc31" onchange="changeSkill(31, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained32" onchange="changeSkill(32, false)"></td>
+				<td>Sense Motive</td>
+				<td id="total32">+0</td>
+				<td>Wis</td>
+				<td class="wisMod">+0</td>
+				<td><input type="number" id="ranks32" onchange="changeSkill(32, false)" min="0"></td>
+				<td><input type="number" id="misc32" onchange="changeSkill(32, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained33" onchange="changeSkill(33, true)"></td>
+				<td>Sleight of Hand*</td>
+				<td id="total33">X</td>
+				<td>Dex</td>
+				<td class="dexMod">+0</td>
+				<td><input type="number" id="ranks33" onchange="changeSkill(33, true)" min="0"></td>
+				<td><input type="number" id="misc33" onchange="changeSkill(33, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained34" onchange="changeSkill(34, true)"></td>
+				<td>Spellcraft*</td>
+				<td id="total34">X</td>
+				<td>Int</td>
+				<td class="intMod">+0</td>
+				<td><input type="number" id="ranks34" onchange="changeSkill(34, true)" min="0"></td>
+				<td><input type="number" id="misc34" onchange="changeSkill(34, true)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained35" onchange="changeSkill(35, false)"></td>
+				<td>Stealth</td>
+				<td id="total35">+0</td>
+				<td>Dex</td>
+				<td class="dexMod">+0</td>
+				<td><input type="number" id="ranks35" onchange="changeSkill(35, false)" min="0"></td>
+				<td><input type="number" id="misc35" onchange="changeSkill(35, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained36" onchange="changeSkill(36, false)"></td>
+				<td>Survival</td>
+				<td id="total36">+0</td>
+				<td>Wis</td>
+				<td class="wisMod">+0</td>
+				<td><input type="number" id="ranks36" onchange="changeSkill(36, false)" min="0"></td>
+				<td><input type="number" id="misc36" onchange="changeSkill(36, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained37" onchange="changeSkill(37, false)"></td>
+				<td>Swim</td>
+				<td id="total37">+0</td>
+				<td>Str</td>
+				<td class="strMod">+0</td>
+				<td><input type="number" id="ranks37" onchange="changeSkill(37, false)" min="0"></td>
+				<td><input type="number" id="misc37" onchange="changeSkill(37, false)"></td>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" id="trained38" onchange="changeSkill(38, true)"></td>
+				<td>Use Magic Device*</td>
+				<td id="total38">X</td>
+				<td>Cha</td>
+				<td class="chaMod">+0</td>
+				<td><input type="number" id="ranks38" onchange="changeSkill(38, true)" min="0"></td>
+				<td><input type="number" id="misc38" onchange="changeSkill(38, true)"></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="navdark" class="navdark"></div>
+	<div id="mainSidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="..">Home</a>
+		<a href="../money/starting-equipment.html">Starting Equipment</a>
+		<a href="../armor/armor-comparison.html">Armor Comparison</a>
+		<a href="../skills/skill-ranks.html">Skill Ranks</a>
+	</div>
+</body>
+</html>
