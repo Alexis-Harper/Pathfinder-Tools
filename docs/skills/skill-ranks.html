@@ -22,12 +22,25 @@
 	</div>
 	
 	<div class="tool">
-		<input type="number" style="float:left;margin-right:4px" id="strength" onchange="strChange()" value="10"><text style="float:left;margin-right:18px">Str</text>
-		<input type="number" style="float:left;margin-right:4px" id="dexterity" onchange="dexChange()" value="10"><text style="float:left;margin-right:18px">Dex</text>
-		<input type="number" style="float:left;margin-right:4px" id="intelligence" onchange="intChange()" value="10"><text style="float:left;margin-right:18px">Int</text>
-		<input type="number" style="float:left;margin-right:4px" id="wisdom" onchange="wisChange()" value="10"><text style="float:left;margin-right:18px">Wis</text>
-		<input type="number" style="float:left;margin-right:4px" id="charisma" onchange="chaChange()" value="10"><text style="float:left;margin-right:18px">Cha</text>
-		<select style="float:left;margin-right:4px" id="class" onchange="updateClass()"><option>Manual</option><option>Alchemist</option><option>Arcanist</option><option>Barbarian</option><option>Bard</option><option>Bloodrager</option><option>Brawler</option><option>Cavalier</option><option>Cleric</option><option>Druid</option><option>Fighter</option><option>Gunslinger</option><option>Hunter</option><option>Inquisitor</option><option>Investigator</option><option>Magus</option><option>Monk</option><option>Ninja</option><option>Oracle</option><option>Paladin</option><option>Ranger</option><option>Samurai</option><option>Shaman</option><option>Skald</option><option>Slayer</option><option>Summoner</option><option>Swashbuckler</option><option>Rogue</option><option>Sorcerer</option><option>Warpriest</option><option>Witch</option><option>Wizard</option></select><text>Class Skills</text><br><br>
+		<table>
+			<tr>
+				<td>Strength</td>
+				<td>Dexterity</td>
+				<td>Intelligence</td>
+				<td>Wisdom</td>
+				<td>Charisma</td>
+				<td>Class</td>
+			</tr>
+			
+			<tr>
+				<td><input type="number" id="strength" onchange="strChange()" value="10"></td>
+				<td><input type="number" id="dexterity" onchange="dexChange()" value="10"></td>
+				<td><input type="number" id="intelligence" onchange="intChange()" value="10"></td>
+				<td><input type="number" id="wisdom" onchange="wisChange()" value="10"></td>
+				<td><input type="number" id="charisma" onchange="chaChange()" value="10"></td>
+				<td><select id="class" onchange="updateClass()"><option>Manual</option><option>Alchemist</option><option>Arcanist</option><option>Barbarian</option><option>Bard</option><option>Bloodrager</option><option>Brawler</option><option>Cavalier</option><option>Cleric</option><option>Druid</option><option>Fighter</option><option>Gunslinger</option><option>Hunter</option><option>Inquisitor</option><option>Investigator</option><option>Magus</option><option>Monk</option><option>Ninja</option><option>Oracle</option><option>Paladin</option><option>Ranger</option><option>Samurai</option><option>Shaman</option><option>Skald</option><option>Slayer</option><option>Summoner</option><option>Swashbuckler</option><option>Rogue</option><option>Sorcerer</option><option>Warpriest</option><option>Witch</option><option>Wizard</option></select></td>
+			</tr>
+		</table><br>
 		
 		<table>
 			<tr>

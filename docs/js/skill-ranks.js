@@ -1475,7 +1475,6 @@ function getSkillMod(skillNumber)
 	switch (skillNumber)
 	{
 		case 3:
-		case 36:
 		case 37:
 			return strMod;
 			
@@ -1535,19 +1534,32 @@ function changeSkill(skillNumber, isTrainedOnly)
 	}
 	else
 	{
-		if (document.getElementById("ranks" + skillNumber).value == 0)
+		var ranks = parseInt(document.getElementById("ranks" + skillNumber).value);
+		var misc = parseInt(document.getElementById("misc" + skillNumber).value)
+		
+		if (Number.isNaN (ranks))
 		{
-			var value = getSkillMod(skillNumber);
+			ranks = 0;
+		}
+		
+		if (Number.isNaN (misc))
+		{
+			misc = 0;
+		}
+		
+		if (ranks == 0)
+		{
+			var value = getSkillMod(skillNumber) + misc;
 		}
 		else
 		{
 			if (document.getElementById("trained" + skillNumber).checked)
 			{
-				var value = getSkillMod(skillNumber) + parseInt(document.getElementById("ranks" + skillNumber).value) + 3; 
+				var value = getSkillMod(skillNumber) + ranks + misc + 3; 
 			}
 			else
 			{
-				var value = getSkillMod(skillNumber) + parseInt(document.getElementById("ranks" + skillNumber).value); 
+				var value = getSkillMod(skillNumber) + ranks + misc; 
 			}
 		}
 		
