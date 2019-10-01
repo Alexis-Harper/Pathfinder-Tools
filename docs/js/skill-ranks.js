@@ -4,6 +4,9 @@ var intMod = 0;
 var wisMod = 0;
 var chaMod = 0;
 
+var ranksTotals = 0;
+var ranksArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
 function strChange()
 {
 	var strength = document.getElementById("strength").value;
@@ -1467,6 +1470,258 @@ function updateClass()
 			document.getElementById("trained37").checked = true; //Swim
 			document.getElementById("trained38").checked = false; //Use Magic Device
 			break;
+			
+		case "Kineticist":
+			document.getElementById("trained0").checked = true; //Acrobatics
+			document.getElementById("trained1").checked = false; //Appraise
+			document.getElementById("trained2").checked = false; //Bluff
+			document.getElementById("trained3").checked = false; //Climb
+			document.getElementById("trained4").checked = true; //Craft
+			document.getElementById("trained5").checked = true; //Craft
+			document.getElementById("trained6").checked = true; //Craft
+			document.getElementById("trained7").checked = false; //Diplomacy
+			document.getElementById("trained8").checked = false; //Disable Device
+			document.getElementById("trained9").checked = false; //Disguise
+			document.getElementById("trained10").checked = false; //Escape Artist
+			document.getElementById("trained11").checked = false; //Fly
+			document.getElementById("trained12").checked = false; //Handle Animal
+			document.getElementById("trained13").checked = true; //Heal
+			document.getElementById("trained14").checked = true; //Intimidate
+			document.getElementById("trained15").checked = false; //Knowledge (Arcana)
+			document.getElementById("trained16").checked = false; //Knowledge (Dungeoneering)
+			document.getElementById("trained17").checked = false; //Knowledge (Engineering)
+			document.getElementById("trained18").checked = false; //Knowledge (Geography)
+			document.getElementById("trained19").checked = false; //Knowledge (History)
+			document.getElementById("trained20").checked = false; //Knowledge (Local)
+			document.getElementById("trained21").checked = false; //Knowledge (Nature)
+			document.getElementById("trained22").checked = false; //Knowledge (Nobility)
+			document.getElementById("trained23").checked = false; //Knowledge (Planes)
+			document.getElementById("trained24").checked = false; //Knowledge (Religion)
+			document.getElementById("trained25").checked = false; //Linguistics
+			document.getElementById("trained26").checked = true; //Perception
+			document.getElementById("trained27").checked = false; //Perform
+			document.getElementById("trained28").checked = false; //Perform
+			document.getElementById("trained29").checked = true; //Profession
+			document.getElementById("trained30").checked = true; //Profession
+			document.getElementById("trained31").checked = false; //Ride
+			document.getElementById("trained32").checked = false; //Sense Motive
+			document.getElementById("trained33").checked = false; //Sleight of Hand
+			document.getElementById("trained34").checked = false; //Spellcraft
+			document.getElementById("trained35").checked = true; //Stealth
+			document.getElementById("trained36").checked = false; //Survival
+			document.getElementById("trained37").checked = false; //Swim
+			document.getElementById("trained38").checked = true; //Use Magic Device
+			break;
+			
+		case "Medium":
+			document.getElementById("trained0").checked = false; //Acrobatics
+			document.getElementById("trained1").checked = false; //Appraise
+			document.getElementById("trained2").checked = true; //Bluff
+			document.getElementById("trained3").checked = false; //Climb
+			document.getElementById("trained4").checked = true; //Craft
+			document.getElementById("trained5").checked = true; //Craft
+			document.getElementById("trained6").checked = true; //Craft
+			document.getElementById("trained7").checked = true; //Diplomacy
+			document.getElementById("trained8").checked = false; //Disable Device
+			document.getElementById("trained9").checked = false; //Disguise
+			document.getElementById("trained10").checked = false; //Escape Artist
+			document.getElementById("trained11").checked = true; //Fly
+			document.getElementById("trained12").checked = false; //Handle Animal
+			document.getElementById("trained13").checked = true; //Heal
+			document.getElementById("trained14").checked = true; //Intimidate
+			document.getElementById("trained15").checked = true; //Knowledge (Arcana)
+			document.getElementById("trained16").checked = false; //Knowledge (Dungeoneering)
+			document.getElementById("trained17").checked = false; //Knowledge (Engineering)
+			document.getElementById("trained18").checked = false; //Knowledge (Geography)
+			document.getElementById("trained19").checked = false; //Knowledge (History)
+			document.getElementById("trained20").checked = false; //Knowledge (Local)
+			document.getElementById("trained21").checked = false; //Knowledge (Nature)
+			document.getElementById("trained22").checked = false; //Knowledge (Nobility)
+			document.getElementById("trained23").checked = true; //Knowledge (Planes)
+			document.getElementById("trained24").checked = true; //Knowledge (Religion)
+			document.getElementById("trained25").checked = true; //Linguistics
+			document.getElementById("trained26").checked = true; //Perception
+			document.getElementById("trained27").checked = true; //Perform
+			document.getElementById("trained28").checked = true; //Perform
+			document.getElementById("trained29").checked = true; //Profession
+			document.getElementById("trained30").checked = true; //Profession
+			document.getElementById("trained31").checked = false; //Ride
+			document.getElementById("trained32").checked = true; //Sense Motive
+			document.getElementById("trained33").checked = false; //Sleight of Hand
+			document.getElementById("trained34").checked = true; //Spellcraft
+			document.getElementById("trained35").checked = false; //Stealth
+			document.getElementById("trained36").checked = false; //Survival
+			document.getElementById("trained37").checked = false; //Swim
+			document.getElementById("trained38").checked = true; //Use Magic Device
+			break;
+			
+		case "Mesmerist":
+			document.getElementById("trained0").checked = false; //Acrobatics
+			document.getElementById("trained1").checked = true; //Appraise
+			document.getElementById("trained2").checked = true; //Bluff
+			document.getElementById("trained3").checked = false; //Climb
+			document.getElementById("trained4").checked = true; //Craft
+			document.getElementById("trained5").checked = true; //Craft
+			document.getElementById("trained6").checked = true; //Craft
+			document.getElementById("trained7").checked = true; //Diplomacy
+			document.getElementById("trained8").checked = false; //Disable Device
+			document.getElementById("trained9").checked = true; //Disguise
+			document.getElementById("trained10").checked = true; //Escape Artist
+			document.getElementById("trained11").checked = false; //Fly
+			document.getElementById("trained12").checked = false; //Handle Animal
+			document.getElementById("trained13").checked = false; //Heal
+			document.getElementById("trained14").checked = true; //Intimidate
+			document.getElementById("trained15").checked = true; //Knowledge (Arcana)
+			document.getElementById("trained16").checked = true; //Knowledge (Dungeoneering)
+			document.getElementById("trained17").checked = false; //Knowledge (Engineering)
+			document.getElementById("trained18").checked = false; //Knowledge (Geography)
+			document.getElementById("trained19").checked = true; //Knowledge (History)
+			document.getElementById("trained20").checked = true; //Knowledge (Local)
+			document.getElementById("trained21").checked = false; //Knowledge (Nature)
+			document.getElementById("trained22").checked = true; //Knowledge (Nobility)
+			document.getElementById("trained23").checked = false; //Knowledge (Planes)
+			document.getElementById("trained24").checked = true; //Knowledge (Religion)
+			document.getElementById("trained25").checked = true; //Linguistics
+			document.getElementById("trained26").checked = true; //Perception
+			document.getElementById("trained27").checked = true; //Perform
+			document.getElementById("trained28").checked = true; //Perform
+			document.getElementById("trained29").checked = true; //Profession
+			document.getElementById("trained30").checked = true; //Profession
+			document.getElementById("trained31").checked = false; //Ride
+			document.getElementById("trained32").checked = true; //Sense Motive
+			document.getElementById("trained33").checked = true; //Sleight of Hand
+			document.getElementById("trained34").checked = true; //Spellcraft
+			document.getElementById("trained35").checked = true; //Stealth
+			document.getElementById("trained36").checked = false; //Survival
+			document.getElementById("trained37").checked = false; //Swim
+			document.getElementById("trained38").checked = true; //Use Magic Device
+			break;
+			
+		case "Occultist":
+			document.getElementById("trained0").checked = false; //Acrobatics
+			document.getElementById("trained1").checked = true; //Appraise
+			document.getElementById("trained2").checked = false; //Bluff
+			document.getElementById("trained3").checked = false; //Climb
+			document.getElementById("trained4").checked = true; //Craft
+			document.getElementById("trained5").checked = true; //Craft
+			document.getElementById("trained6").checked = true; //Craft
+			document.getElementById("trained7").checked = true; //Diplomacy
+			document.getElementById("trained8").checked = true; //Disable Device
+			document.getElementById("trained9").checked = true; //Disguise
+			document.getElementById("trained10").checked = false; //Escape Artist
+			document.getElementById("trained11").checked = true; //Fly
+			document.getElementById("trained12").checked = false; //Handle Animal
+			document.getElementById("trained13").checked = false; //Heal
+			document.getElementById("trained14").checked = false; //Intimidate
+			document.getElementById("trained15").checked = true; //Knowledge (Arcana)
+			document.getElementById("trained16").checked = false; //Knowledge (Dungeoneering)
+			document.getElementById("trained17").checked = true; //Knowledge (Engineering)
+			document.getElementById("trained18").checked = false; //Knowledge (Geography)
+			document.getElementById("trained19").checked = true; //Knowledge (History)
+			document.getElementById("trained20").checked = false; //Knowledge (Local)
+			document.getElementById("trained21").checked = false; //Knowledge (Nature)
+			document.getElementById("trained22").checked = false; //Knowledge (Nobility)
+			document.getElementById("trained23").checked = true; //Knowledge (Planes)
+			document.getElementById("trained24").checked = true; //Knowledge (Religion)
+			document.getElementById("trained25").checked = true; //Linguistics
+			document.getElementById("trained26").checked = true; //Perception
+			document.getElementById("trained27").checked = false; //Perform
+			document.getElementById("trained28").checked = false; //Perform
+			document.getElementById("trained29").checked = true; //Profession
+			document.getElementById("trained30").checked = true; //Profession
+			document.getElementById("trained31").checked = false; //Ride
+			document.getElementById("trained32").checked = true; //Sense Motive
+			document.getElementById("trained33").checked = true; //Sleight of Hand
+			document.getElementById("trained34").checked = true; //Spellcraft
+			document.getElementById("trained35").checked = false; //Stealth
+			document.getElementById("trained36").checked = false; //Survival
+			document.getElementById("trained37").checked = false; //Swim
+			document.getElementById("trained38").checked = true; //Use Magic Device
+			break;
+			
+		case "Psychic":
+			document.getElementById("trained0").checked = false; //Acrobatics
+			document.getElementById("trained1").checked = false; //Appraise
+			document.getElementById("trained2").checked = true; //Bluff
+			document.getElementById("trained3").checked = false; //Climb
+			document.getElementById("trained4").checked = true; //Craft
+			document.getElementById("trained5").checked = true; //Craft
+			document.getElementById("trained6").checked = true; //Craft
+			document.getElementById("trained7").checked = true; //Diplomacy
+			document.getElementById("trained8").checked = false; //Disable Device
+			document.getElementById("trained9").checked = false; //Disguise
+			document.getElementById("trained10").checked = false; //Escape Artist
+			document.getElementById("trained11").checked = true; //Fly
+			document.getElementById("trained12").checked = false; //Handle Animal
+			document.getElementById("trained13").checked = false; //Heal
+			document.getElementById("trained14").checked = true; //Intimidate
+			document.getElementById("trained15").checked = true; //Knowledge (Arcana)
+			document.getElementById("trained16").checked = true; //Knowledge (Dungeoneering)
+			document.getElementById("trained17").checked = true; //Knowledge (Engineering)
+			document.getElementById("trained18").checked = true; //Knowledge (Geography)
+			document.getElementById("trained19").checked = true; //Knowledge (History)
+			document.getElementById("trained20").checked = true; //Knowledge (Local)
+			document.getElementById("trained21").checked = true; //Knowledge (Nature)
+			document.getElementById("trained22").checked = true; //Knowledge (Nobility)
+			document.getElementById("trained23").checked = true; //Knowledge (Planes)
+			document.getElementById("trained24").checked = true; //Knowledge (Religion)
+			document.getElementById("trained25").checked = true; //Linguistics
+			document.getElementById("trained26").checked = true; //Perception
+			document.getElementById("trained27").checked = false; //Perform
+			document.getElementById("trained28").checked = false; //Perform
+			document.getElementById("trained29").checked = true; //Profession
+			document.getElementById("trained30").checked = true; //Profession
+			document.getElementById("trained31").checked = false; //Ride
+			document.getElementById("trained32").checked = true; //Sense Motive
+			document.getElementById("trained33").checked = false; //Sleight of Hand
+			document.getElementById("trained34").checked = true; //Spellcraft
+			document.getElementById("trained35").checked = false; //Stealth
+			document.getElementById("trained36").checked = false; //Survival
+			document.getElementById("trained37").checked = false; //Swim
+			document.getElementById("trained38").checked = false; //Use Magic Device
+			break;
+			
+		case "Spiritualist":
+			document.getElementById("trained0").checked = false; //Acrobatics
+			document.getElementById("trained1").checked = false; //Appraise
+			document.getElementById("trained2").checked = true; //Bluff
+			document.getElementById("trained3").checked = false; //Climb
+			document.getElementById("trained4").checked = true; //Craft
+			document.getElementById("trained5").checked = true; //Craft
+			document.getElementById("trained6").checked = true; //Craft
+			document.getElementById("trained7").checked = false; //Diplomacy
+			document.getElementById("trained8").checked = false; //Disable Device
+			document.getElementById("trained9").checked = false; //Disguise
+			document.getElementById("trained10").checked = false; //Escape Artist
+			document.getElementById("trained11").checked = true; //Fly
+			document.getElementById("trained12").checked = false; //Handle Animal
+			document.getElementById("trained13").checked = true; //Heal
+			document.getElementById("trained14").checked = true; //Intimidate
+			document.getElementById("trained15").checked = true; //Knowledge (Arcana)
+			document.getElementById("trained16").checked = true; //Knowledge (Dungeoneering)
+			document.getElementById("trained17").checked = true; //Knowledge (Engineering)
+			document.getElementById("trained18").checked = true; //Knowledge (Geography)
+			document.getElementById("trained19").checked = true; //Knowledge (History)
+			document.getElementById("trained20").checked = true; //Knowledge (Local)
+			document.getElementById("trained21").checked = true; //Knowledge (Nature)
+			document.getElementById("trained22").checked = true; //Knowledge (Nobility)
+			document.getElementById("trained23").checked = true; //Knowledge (Planes)
+			document.getElementById("trained24").checked = true; //Knowledge (Religion)
+			document.getElementById("trained25").checked = true; //Linguistics
+			document.getElementById("trained26").checked = false; //Perception
+			document.getElementById("trained27").checked = false; //Perform
+			document.getElementById("trained28").checked = false; //Perform
+			document.getElementById("trained29").checked = true; //Profession
+			document.getElementById("trained30").checked = true; //Profession
+			document.getElementById("trained31").checked = false; //Ride
+			document.getElementById("trained32").checked = true; //Sense Motive
+			document.getElementById("trained33").checked = false; //Sleight of Hand
+			document.getElementById("trained34").checked = true; //Spellcraft
+			document.getElementById("trained35").checked = false; //Stealth
+			document.getElementById("trained36").checked = false; //Survival
+			document.getElementById("trained37").checked = false; //Swim
+			document.getElementById("trained38").checked = true; //Use Magic Device
+			break;
 	}
 }
 
@@ -1528,19 +1783,25 @@ function getSkillMod(skillNumber)
 
 function changeSkill(skillNumber, isTrainedOnly)
 {
+	var ranks = parseInt(document.getElementById("ranks" + skillNumber).value);
+	
+	if (Number.isNaN (ranks))
+	{
+		ranks = 0;
+	}
+	
+	ranksTotals -= ranksArray[skillNumber];
+	ranksTotals += ranks;
+	ranksArray[skillNumber] = ranks;
+	document.getElementById("ranksTotal").innerText = "Total Ranks: " + ranksTotals;
+	
 	if (isTrainedOnly && document.getElementById("ranks" + skillNumber).value == 0)
 	{
 		document.getElementById("total" + skillNumber).innerText = "X";
 	}
 	else
 	{
-		var ranks = parseInt(document.getElementById("ranks" + skillNumber).value);
 		var misc = parseInt(document.getElementById("misc" + skillNumber).value)
-		
-		if (Number.isNaN (ranks))
-		{
-			ranks = 0;
-		}
 		
 		if (Number.isNaN (misc))
 		{
