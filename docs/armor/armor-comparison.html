@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html lang="en">
 <head>
@@ -9,12 +9,12 @@
 	<meta name="author" content="Alexis Harper">
 	
 	<link rel="stylesheet" href="../css/styles.css">
-	<link rel="stylesheet" href="../css/armor-comparison.css">
+	<link rel="stylesheet" href="armor-comparison.css">
 </head>
 
-<body>
+<body onload="loadSidenav()">
 	<script src="../js/sidenav.js"></script>
-	<script src="../js/armor-comparison.js"></script>
+	<script src="armor-comparison.js"></script>
 	
 	<div id="mainTopnav" class="topnav">
 		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Pathfinder Tools</span>
@@ -131,12 +131,6 @@
 	</div>
 		
 	<div id="navdark" class="navdark"></div>
-	<div id="mainSidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="..">Home</a>n  
-		<a href="../money/starting-equipment.html">Starting Equipment</a>
-		<a href="../armor/armor-comparison.html">Armor Comparison</a>
-		<a href="../skills/skill-ranks.html">Skill Ranks</a>
-	</div>
+	<div id="mainSidenav" class="sidenav"></div>
 </body>
 </html>

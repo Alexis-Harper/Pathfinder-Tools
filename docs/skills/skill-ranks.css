@@ -1,0 +1,9 @@
+td
+{
+	padding: 8px;
+}
+
+td input
+{
+	display: flex;
+}

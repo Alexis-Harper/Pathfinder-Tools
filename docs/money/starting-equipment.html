@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html lang="en">
 <head>
@@ -9,49 +9,54 @@
 	<meta name="author" content="Alexis Harper">
 	
 	<link rel="stylesheet" href="../css/styles.css">
-	<link rel="stylesheet" href="../css/starting-equipment.css">
+	<link rel="stylesheet" href="starting-equipment.css">
 </head>
 
-<body>
+<body onload="loadSidenav()">
 	<script src="../js/sidenav.js"></script>
-	
+	<script src="starting-equipment.js"></script>
+
 	<div id="mainTopnav" class="topnav">
 		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Pathfinder Tools</span><br><br>
 		A collection of tools to assist with character creation and Dungeon Mastering.
 	</div>
-	
+
 	<div class="tool">
 		Starting Wealth:<br>
 		<input type="number" id="wealth" onchange="startingWealthChanged()" style="margin-bottom:18px"><br>
-		
+
 		<div style="display:flex;flex-wrap:nowrap">
 			<div style="float:left;margin-right:18px">
 				<table id="equipment">
 					<tr>
 						<td>Item</td>
+						<td>Quantity</td>
 						<td>Price</td>
 						<td>Currency</td>
 					</tr>
-					
+
 					<tr>
 						<td><input type="text"></td>
+						<td><input type="number" onchange="recalculate()"></td>
 						<td><input type="number" onchange="recalculate()"></td>
 						<td><select onchange="recalculate()"><option>GP</option><option>SP</option><option>CP</option></select></td>
 						<td><button onclick="removeRow(1)">&times;</button></td>
 					</tr>
 				</table>
-				
+
 				<button onclick="addEmptyRow()">&plus;</button><br><br>
-				
+
 				Leftover Money:
-				<p id="leftoverMoney">CP: 0<br>
-				SP: 0<br>
-				GP: 0</p>
+				<p id="leftoverMoney">
+					CP: 0<br>
+					SP: 0<br>
+					GP: 0
+				</p>
 			</div>
-			
+
 			<div style="margin-left:18px">
 				<h3>Core Rulebook Equipment:</h3>
-				
+
 				<button class="collapsible">Armor and Shields</button>
 				<div class="category">
 					<button onclick="addRow(&quot;Padded armor&quot;, 5, &quot;GP&quot;);recalculate()">Padded</button>
@@ -73,7 +78,7 @@
 					<button onclick="addRow(&quot;Shield, heavy steel&quot;, 20, &quot;GP&quot;);recalculate()">Shield, heavy steel</button>
 					<button onclick="addRow(&quot;Shield, tower&quot;, 30, &quot;GP&quot;);recalculate()">Shield, tower</button>
 				</div>
-				
+
 				<button class="collapsible">Weapons</button>
 				<div class="category">
 					<h5 style="margin-top:8px">Unarmed Attacks</h5>
@@ -168,7 +173,7 @@
 					<button onclick="addRow(&quot;Sling staff halfling&quot;, 20, &quot;GP&quot;);recalculate()">Sling staff, halfling</button>
 					<button onclick="addRow(&quot;Bullets, sling (10)&quot;, 1, &quot;SP&quot;);recalculate()">Bullets, sling (10)</button>
 				</div>
-				
+
 				<button class="collapsible">Adventuring Gear</button>
 				<div class="category">
 					<button onclick="addRow(&quot;Backpack&quot;, 2, &quot;GP&quot;);recalculate()">Backpack</button>
@@ -239,7 +244,7 @@
 					<button onclick="addRow(&quot;Waterskin&quot;, 1, &quot;GP&quot;);recalculate()">Waterskin</button>
 					<button onclick="addRow(&quot;Whetstone&quot;, 2, &quot;CP&quot;);recalculate()">Whetstone</button>
 				</div>
-					
+
 				<button class="collapsible">Special Substances and Items</button>
 				<div class="category">
 					<button onclick="addRow(&quot;Acid (flask)&quot;, 10, &quot;GP&quot;);recalculate()">Acid (flask)</button>
@@ -253,7 +258,7 @@
 					<button onclick="addRow(&quot;Thunderstone&quot;, 30, &quot;GP&quot;);recalculate()">Thunderstone</button>
 					<button onclick="addRow(&quot;Tindertwig&quot;, 1, &quot;GP&quot;);recalculate()">Tindertwig</button>
 				</div>
-				
+
 				<button class="collapsible">Tools and Skill Kits</button>
 				<div class="category">
 					<button onclick="addRow(&quot;Alchemist's lab&quot;, 200, &quot;GP&quot;);recalculate()">Alchemist's lab</button>
@@ -278,17 +283,10 @@
 			</div><br>
 		</div>
 	</div>
-		
+
 	<div id="navdark" class="navdark"></div>
-	<div id="mainSidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="..">Home</a>
-		<a href="starting-equipment.html">Starting Equipment</a>
-		<a href="../armor/armor-comparison.html">Armor Comparison</a>
-		<a href="../skills/skill-ranks.html">Skill Ranks</a>
-	</div>
-	
+	<div id="mainSidenav" class="sidenav"></div>
+
 	<script src="../js/collapsible.js"></script>
-	<script src="../js/starting-equipment.js"></script>
 </body>
 </html>
